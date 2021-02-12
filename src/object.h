@@ -32,6 +32,7 @@ public:
 	bn::sprite_animate_action<4> action;
 	void update();
 	void draw();
+	void clear();
 	
 	explicit Object(const bn::sprite_item& sprite_item, int x,int y);
 	explicit Object();

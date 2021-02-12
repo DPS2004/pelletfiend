@@ -26,7 +26,7 @@
 #include "bg.h"
 
 Bg::Bg(): 
-	cbg(bn::affine_bg_items::bg_titlescreen.create_bg(0, 0))
+	cbg(bn::affine_bg_items::bg_blank.create_bg(0, 0))
     {
     }
 Bg::Bg(const bn::affine_bg_item& affine_bg_item, int x,int y):

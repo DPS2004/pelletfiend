@@ -39,3 +39,6 @@ void Object::update() {
 void Object::draw() {
 	
 }
+void Object::clear() {
+	spr.set_item(bn::sprite_items::spr_blank); //eh good enough
+}

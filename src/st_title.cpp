@@ -27,7 +27,7 @@ void St_title::init() {
 	nmscroll = 0.0;
 	nextstate = 1; // title
 	
-	//gridbg = Bg(bn::affine_bg_items::bg_titlescreen,0,0); TODO: fix bg objects
+	gridbg.cbg.set_item(bn::affine_bg_items::bg_titlescreen);// TODO: fix bg objects
 	
 	objects[0] = Object(bn::sprite_items::spr_logo0,-108+(64*0.5),-10);
     objects[1] = Object(bn::sprite_items::spr_logo1,-108+(64*1.5),-10);
@@ -62,6 +62,14 @@ int St_title::update() {
 	
 	if(bn::keypad::a_pressed() or bn::keypad::start_pressed()) {
 		nextstate = 0; //blank
+	}
+	
+	if(nextstate != 1) {
+		objects[0].clear();
+		objects[1].clear();
+		objects[2].clear();
+		objects[3].clear(); //reset title
+		//TODO clear gridbg
 	}
 	return nextstate;
 }
