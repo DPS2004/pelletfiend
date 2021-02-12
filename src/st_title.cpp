@@ -25,8 +25,9 @@ void St_title::init() {
 	logoy = -20.0;
 	degrees_angle = 0;
 	nmscroll = 0.0;
+	nextstate = 1; // title
 	
-	// gridbg = Bg(bn::affine_bg_items::bg_titlescreen,0,0);
+	//gridbg = Bg(bn::affine_bg_items::bg_titlescreen,0,0); TODO: fix bg objects
 	
 	objects[0] = Object(bn::sprite_items::spr_logo0,-108+(64*0.5),-10);
     objects[1] = Object(bn::sprite_items::spr_logo1,-108+(64*1.5),-10);
@@ -36,7 +37,7 @@ void St_title::init() {
 
 }
 
-void St_title::update() {
+int St_title::update() {
 	//State::update();
 	
 	nmscroll += 2;
@@ -56,8 +57,13 @@ void St_title::update() {
 		degrees_angle -= 360;
 	}
 	
-	// gridbg.cbg.set_y(0-nmscroll);
-	// gridbg.cbg.set_x(bn::degrees_lut_sin(degrees_angle) * 39);
+	gridbg.cbg.set_y(0-nmscroll);
+	gridbg.cbg.set_x(bn::degrees_lut_sin(degrees_angle) * 39);
+	
+	if(bn::keypad::a_pressed() or bn::keypad::start_pressed()) {
+		nextstate = 0; //blank
+	}
+	return nextstate;
 }
 void St_title::draw() {
 	//State::draw();

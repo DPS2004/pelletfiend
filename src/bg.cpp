@@ -20,6 +20,7 @@
 
 #include "bn_sprite_items_spr_blank.h"
 
+#include "bn_affine_bg_items_bg_blank.h"
 #include "bn_affine_bg_items_bg_titlescreen.h"
 
 #include "bg.h"

@@ -33,6 +33,7 @@
 // import states
 
 #include "st_title.h"
+#include "st_blank.h"
 
 
 int main()
@@ -40,8 +41,12 @@ int main()
     bn::core::init(); //initialize butano
 	//bn::affine_bg_ptr bg = bn::affine_bg_items::bg_titlescreen.create_bg(0, 0);
 	BN_LOG("hello world!");
-	
+
+    St_blank st_blank;	
     St_title st_title;
+
+	
+	int cstate = 1;
 	
 	st_title.init();
 	
@@ -56,31 +61,12 @@ int main()
 	
     while(true) //main loop
     {	
-		st_title.update();
+		if(cstate == 1) {
+			cstate = st_title.update();
+		} else {
+			cstate = st_blank.update();
+		}
         
-        // if(bn::keypad::left_held())
-        // {
-            // objects[0].spr.set_x(objects[0].spr.x() - 1);
-            // objects[0].spr.set_horizontal_flip(true);
-        // }
-        // else if(bn::keypad::right_held())
-        // {
-            // objects[0].spr.set_x(objects[0].spr.x() + 1);
-            // objects[0].spr.set_horizontal_flip(false);
-        // }
-
-        // if(bn::keypad::up_held())
-        // {
-            // objects[0].spr.set_y(objects[0].spr.y() - 1);
-        // }
-        // else if(bn::keypad::down_held())
-        // {
-            // objects[0].spr.set_y(objects[0].spr.y() + 1);
-        // }
-		
-		// z order, update
-
-
 		
 		
         bn::core::update();
